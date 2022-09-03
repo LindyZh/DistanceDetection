@@ -39,7 +39,7 @@ def clear_noise(clear_num):
     # new file
     new_df = annotated_csv[~annotated_csv.index.isin(clear_indices)]
     file_time = time.time()
-    new_df.to_csv(os.path.join(init.BB_data_folder, "clear_{}_coords_cam_{}.csv".format(clear_complete, cam_id)))
+    new_df.to_csv(os.path.join(path, "clear_{}_coords_cam_{}.csv".format(clear_complete, cam_id)))
     print("The file clear_{}_coords_cam_{}.csv".format(clear_complete, cam_id) + " is generated in %s seconds ---" % (
             time.time() - file_time))
 
@@ -67,6 +67,7 @@ if __name__ == '__main__':
     clear_r1 = 5
     clear_r2 = 11
     joint_num = 22  # a person have 22 joint identified
+    path = init.cal_data_path.format(cam_id)
 
     # ================== reading data =====================================
     # read file
@@ -74,7 +75,7 @@ if __name__ == '__main__':
     read_time = time.time()
     print("Reading file for cam_{}...".format(cam_id))
 
-    cal_csv_path = os.path.join(init.BB_data_folder, "coords_cam_{}.csv".format(cam_id))
+    cal_csv_path = os.path.join(path, "coords_cam_{}.csv".format(cam_id))
     annotated_csv = pd.read_csv(cal_csv_path)
     print("Finished reading coords_cam_{}.csv file in %s seconds ---".format(cam_id) % (time.time() - read_time))
 
