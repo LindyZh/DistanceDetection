@@ -1,2 +1,3 @@
-/.idea/
-/venv/
+MTA_ext_short/**
+MTA_ext_short_coords/**
+__pycache__/**

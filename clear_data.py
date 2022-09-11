@@ -39,8 +39,8 @@ def clear_noise(clear_num):
     # new file
     new_df = annotated_csv[~annotated_csv.index.isin(clear_indices)]
     file_time = time.time()
-    new_df.to_csv(os.path.join(path, "clear_{}_coords_cam_{}.csv".format(clear_complete, cam_id)))
-    print("The file clear_{}_coords_cam_{}.csv".format(clear_complete, cam_id) + " is generated in %s seconds ---" % (
+    new_df.to_csv(os.path.join(path, "clear_{}_coords_cam_{}.csv".format(clear_num, cam_id)))
+    print("The file clear_{}_coords_cam_{}.csv".format(clear_num, cam_id) + " is generated in %s seconds ---" % (
             time.time() - file_time))
 
 

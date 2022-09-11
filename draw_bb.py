@@ -11,17 +11,19 @@ import init
 
 # ================== initialization ===================================
 # testing params
-cam_id = 4
+cam_id = 3
 sampling_rate = 5  # fps
-clear = 5  # people with this numer of occluded joints will be removed
+clear = -1  # people with this numer of occluded joints will be removed
 
 path = init.bb_data_path.format(cam_id)
 calibration_path = init.cal_data_path.format(cam_id)
 csv_path = os.path.join(path, "coords_fib_cam_{}.csv".format(cam_id))
 
 # make sure the cleared cam is stored here
-annotated_csv_path = os.path.join(calibration_path, "clear_{}_coords_cam_{}.csv".format(clear, cam_id))
-# annotated_csv_path = os.path.join(calibration_path, "coords_cam_{}.csv".format(cam_id))
+if clear==-1:
+    annotated_csv_path = os.path.join(calibration_path, "coords_cam_{}.csv".format(cam_id))
+else:
+    annotated_csv_path = os.path.join(calibration_path, "clear_{}_coords_cam_{}.csv".format(clear, cam_id))
 
 video_path = os.path.join(path, "cam_{}.mp4".format(cam_id))
 
@@ -202,9 +204,9 @@ while cap.isOpened():
                 x2 = w_to_cam_2 * ratio
                 y2 = math.sqrt(max(ydis2 ** 2 - x2 ** 2, 0))
 
-                D = math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+                D2 = math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
-                observed_dis2.append(D)
+                observed_dis2.append(D2)
                 accurate_dis2.append(actual_dis)
 
                 # check distance here, if too close draw the distance line
