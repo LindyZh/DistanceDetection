@@ -1,7 +1,7 @@
 # Distance Detection for MTA dataset
 ![distance detection](https://github.com/LindyZh/DistanceDetection/blob/main/img/demo.jpg)
 ## Dataset
-All dataset used for distance detection training and testing are acquired from the [MTA (multi camera track auto) dataset](https://github.com/schuar-iosb/mta-dataset)\
+All dataset used for distance detection training and testing are acquired from the [MTA (multi camera track auto) dataset](https://github.com/schuar-iosb/mta-dataset)
 
 ## Distance Detection Method
 We have explored and tested multiple methods of distance detection non-machine-learning methods, including:
